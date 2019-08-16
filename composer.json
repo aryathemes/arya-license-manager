@@ -1,0 +1,28 @@
+{
+    "name": "arya/arya-license-manager",
+    "type": "project",
+    "description": "Arya License Manager integrates with WooCommerce to simplify the creation and management of software licenses.",
+    "version": "1.0.0",
+    "authors": [
+        {
+             "name": "Luis A. Ochoa",
+             "role": "Developer"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "keywords": [ "license", "ecommerce", "woocommerce" ],
+    "autoload": {
+        "psr-4": {
+            "Arya\\LicenseManager\\": "arya-license-manager/src/"
+        },
+        "files": ["arya-license-manager/src/functions.php"]
+    },
+    "config": {
+        "vendor-dir": "arya-license-manager/vendor/"
+    },
+    "require": {
+        "php": "^7.0",
+        "aryathemes/wp-list-table": "dev-master"
+    }
+}

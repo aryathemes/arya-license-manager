@@ -1,0 +1,172 @@
+/**
+ * Product
+ */
+.wp-admin #woocommerce-product-data ul.wc-tabs li.license_options a:before {
+    font-family: WooCommerce;
+    content: '\e01b';
+}
+
+/**
+ * Dashboard (Order)
+ */
+.wp-admin table.woocommerce_order_items table.display_meta tr th {
+    width: 25% !important;
+}
+
+.wp-admin table.woocommerce_order_items table.display_meta code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/**
+ * Dashboard (Licenses)
+ */
+.wp-admin.woocommerce_page_wc-licenses table.licenses .column-license {
+    width: 250px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses .column-product {
+    width: 20ch;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses .column-order {
+    width: 20ch;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses td.license code {
+    background: none;
+    font-weight: 600;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses td.status span {
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses td.status span.active {
+    color: #000000;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses td.status span.inactive {
+    color: #FF5722;
+}
+
+.wp-admin.woocommerce_page_wc-licenses table.licenses td.status span.expired {
+    color: #b00020;
+}
+
+/**
+ * Dashboard (License)
+ */
+.wp-admin.woocommerce_page_wc-licenses #poststuff .license-header {
+    margin: 0;
+    text-shadow: 1px 1px 1px #fff;
+    padding: 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #actions {
+}
+
+.wp-admin.woocommerce_page_wc-licenses #actions select {
+    float: left;
+    width: 180px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #actions button {
+    float: right;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .inside {
+    margin: 0;
+    padding: 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #information .information-table,
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table {
+    border: 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #information .information-table code {
+    background: transparent;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table th {
+    background: #fcfcfc;
+    color: #32373c;
+    font-weight: 600;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tr:nth-child(2n) {
+    background: #fcfcfc;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot th {
+    font-weight: 400;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table td.no-activations {
+    text-align: center;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table td p {
+    margin: 1em 0;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form {
+    display: table;
+    font-size: 13px;
+    line-height: 1.5em;
+    width: 100%;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form .form-row {
+    display: table-row;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form .form-column {
+    display: table-cell;
+    padding: 8px 10px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form .form-column:first-child {
+    width: 200px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form input {
+    height: 28px;
+    margin: 0;
+    padding: 3px 5px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form input,
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form select {
+    font-size: 13px;
+    line-height: 1.5em;
+    width: 100%;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form #field-information {
+    display: none;
+}
+
+.wp-admin.woocommerce_page_wc-licenses #activations .activations-table tfoot .associate-form #constraint-description {
+    font-size: small;
+    font-style: italic;
+}
+
+.wp-admin.woocommerce_page_wc-licenses .notice-license-error {
+    background: #fff;
+    border-left: 4px solid #b71c1c;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    margin: 5px 15px 2px;
+    padding: 1px 12px;
+}
+
+.wp-admin.woocommerce_page_wc-licenses .notice-license-error p {
+    font-weight: bolder;
+    margin: 0.5em 0;
+    padding: 2px;
+}
