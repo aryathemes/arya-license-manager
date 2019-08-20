@@ -9,9 +9,9 @@
              "role": "Developer"
         }
     ],
-    "license": "GPL-2.0-or-later",
+    "license": "GPL-3.0-or-later",
     "minimum-stability": "dev",
-    "keywords": [ "license", "ecommerce", "woocommerce" ],
+    "keywords": [ "license", "ecommerce", "woocommerce", "license" ],
     "autoload": {
         "psr-4": {
             "Arya\\LicenseManager\\": "arya-license-manager/src/"
@@ -22,7 +22,7 @@
         "vendor-dir": "arya-license-manager/vendor/"
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.1",
         "aryathemes/wp-list-table": "dev-master"
     }
 }
