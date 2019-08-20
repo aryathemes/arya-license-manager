@@ -44,23 +44,53 @@ class Credentials
             $wpdb->update( $this->table, [ 'status' => 'inactive' ], $credentials );
         }
 
+        $access_key = bin2hex( random_bytes( 10 ) );
+
+        $private_access_key = bin2hex( random_bytes( 20 ) );
+
         $credentials = [
             'user_id'            => $user_id,
-            'access_key'         => bin2hex( random_bytes( 10 ) ),
-            'private_access_key' => bin2hex( random_bytes( 20 ) )
+            'access_key'         => $access_key,
+            'private_access_key' => password_hash( $private_access_key, PASSWORD_DEFAULT )
         ];
 
         $wpdb->insert( $this->table, $credentials );
 
-        return $credentials;
+        return [
+            'access_key'         => $access_key,
+            'private_access_key' => $private_access_key
+        ];
     }
 
     /**
-     * Retrieves the user id by using the credentials.
+     * Retrieves the password hash.
      *
      * @since 1.0.0
      */
-    public function getUserId( string $access_key, string $private_access_key )
+    public function getHash( string $access_key )
+    {
+        global $wpdb;
+
+        $sql = "SELECT
+                    `private_access_key`
+                FROM
+                    `{$this->table}`
+                WHERE
+                    `access_key` LIKE %s
+                AND
+                    `status` LIKE 'active';";
+
+        $result = $wpdb->get_row( $wpdb->prepare( $sql, $access_key ), OBJECT );
+
+        return $result ? $result->private_access_key : false;
+    }
+
+    /**
+     * Retrieves the user id by using the access key.
+     *
+     * @since 1.0.0
+     */
+    public function getUserId( string $access_key )
     {
         global $wpdb;
 
@@ -71,11 +101,9 @@ class Credentials
                 WHERE
                     `access_key` LIKE %s
                 AND
-                    `private_access_key` LIKE %s
-                AND
                     `status` LIKE 'active';";
 
-        $result = $wpdb->get_row( $wpdb->prepare( $sql, $access_key, $private_access_key ), OBJECT );
+        $result = $wpdb->get_row( $wpdb->prepare( $sql, $access_key ), OBJECT );
 
         return $result ? intval( $result->user_id ) : false;
     }
@@ -108,13 +136,12 @@ class Credentials
      *
      * @since 1.0.0
      */
-    public function accessRecord( string $access_key, string $private_access_key )
+    public function accessRecord( string $access_key )
     {
         global $wpdb;
 
         $where = [
-            'access_key'         => esc_sql( $access_key ),
-            'private_access_key' => esc_sql( $private_access_key )
+            'access_key' => esc_sql( $access_key )
         ];
 
         return $wpdb->update( $this->table, [ 'last_access' => current_time( 'mysql', true ) ], $where );

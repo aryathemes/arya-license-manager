@@ -16,21 +16,7 @@ jQuery(function($) {
 
         $.post(arya_license_manager_credentials.ajaxurl, data, function(response) {
             location.reload();
-        });
-    });
 
-    $('.woocommerce-account .credentials-download').click(function(e) {
-        e.preventDefault();
-
-        var customer_id = $(this).data("customer");
-
-        var data = {
-            'action': 'credentials_download',
-            'customer_id': customer_id,
-            'security': arya_license_manager_credentials.credentials_download_nonce
-        };
-
-        $.post(arya_license_manager_credentials.ajaxurl, data, function(response) {
             var a = document.createElement("a");
             a.style.display = "none";
             document.body.appendChild(a);

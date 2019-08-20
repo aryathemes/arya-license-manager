@@ -41,7 +41,6 @@ class Request
 
         /* Credentials */
         add_action( 'wp_ajax_credentials_create', [ $this, 'credentialsCreate' ] );
-        add_action( 'wp_ajax_credentials_download', [ $this, 'credentialsDownload' ] );
         add_action( 'wp_ajax_credentials_revoke', [ $this, 'credentialsRevoke' ] );
     }
 
@@ -189,7 +188,7 @@ class Request
     }
 
     /**
-     * AJAX end point to create security credentials.
+     * AJAX end point to create and download security credentials.
      *
      * @since 1.0.0
      */
@@ -201,23 +200,6 @@ class Request
         $customer_id = sanitize_text_field( $_POST['customer_id'] );
 
         $credentials = (new Credentials)->create( intval( $customer_id ) );
-
-        wp_send_json_success( $credentials, 201 );
-    }
-
-    /**
-     * AJAX endpoint to download security credentials.
-     *
-     * @since 1.0.0
-     */
-    public function credentialsDownload()
-    {
-        check_ajax_referer( 'arya-license-manager-credentials-download', 'security' );
-
-        /* Retrieves customer id */
-        $customer_id = sanitize_text_field( $_POST['customer_id'] );
-
-        $credentials = (new Credentials)->getCredentials( intval( $customer_id ) );
 
         echo json_encode( $credentials, 200 );
         die();

@@ -62,8 +62,8 @@ class Install
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}license_manager_credentials(
                     credential_id BIGINT NOT NULL AUTO_INCREMENT,
                     user_id BIGINT NOT NULL,
-                    access_key VARCHAR(20) NOT NULL,
-                    private_access_key VARCHAR(40) NOT NULL,
+                    access_key VARCHAR(50) NOT NULL,
+                    private_access_key VARCHAR(255) NOT NULL,
                     last_access BIGINT NULL DEFAULT NULL,
                     status ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
                     PRIMARY KEY (credential_id)

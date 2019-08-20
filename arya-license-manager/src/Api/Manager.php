@@ -59,7 +59,7 @@ class Manager
      */
     public function rest()
     {
-        register_rest_route( $this->namespace, '/(?P<license>.{10,})/activate/', [
+        register_rest_route( $this->namespace, '/(?P<license>\S{10,})/activate/', [
             'methods'  => \WP_REST_Server::CREATABLE,
             'callback' => [ $this, 'activate' ],
             'args' => [
@@ -71,7 +71,7 @@ class Manager
             ]
         ] );
 
-        register_rest_route( $this->namespace, '/(?P<license>.{10,})/deactivate/', [
+        register_rest_route( $this->namespace, '/(?P<license>\S{10,})/deactivate/', [
             'methods'  => \WP_REST_Server::CREATABLE,
             'callback' => [ $this, 'deactivate' ],
             'args' => [
@@ -83,7 +83,7 @@ class Manager
             ]
         ] );
 
-        register_rest_route( $this->namespace, '/(?P<license>.{10,})/validate/', [
+        register_rest_route( $this->namespace, '/(?P<license>\S{10,})/validate/', [
             'methods'  => \WP_REST_Server::CREATABLE,
             'callback' => [ $this, 'validate' ],
             'args' => [
@@ -95,7 +95,7 @@ class Manager
             ]
         ] );
 
-        register_rest_route( $this->namespace, '/(?P<license>.{10,})/', [
+        register_rest_route( $this->namespace, '/(?P<license>\S{10,})/', [
             'methods'  => \WP_REST_Server::CREATABLE,
             'callback' => [ $this, 'information' ],
             'args' => [

@@ -153,18 +153,18 @@ class Authentication
 
         $credentials = new Credentials;
 
-        $user_id = $credentials->getUserId( $user, $pass );
+        $hash = $credentials->getHash( $user );
 
-        if ( false === $user_id ) {
+        if ( false === $hash || ! password_verify( $pass, $hash ) ) {
 
             $this->error = new \WP_Error( 'rest_authentication_error', 'Authentication error.', [ 'status' => 401 ] );
 
-            return $user_id;
+            return false;
         }
 
-        $credentials->accessRecord( $user, $pass );
+        $credentials->accessRecord( $user );
 
-        return $user_id;
+        return $credentials->getUserId( $user );
     }
 
     /**

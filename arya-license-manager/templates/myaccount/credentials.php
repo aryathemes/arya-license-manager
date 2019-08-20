@@ -20,9 +20,6 @@ defined( 'ABSPATH' ) || exit; ?>
         <a class="woocommerce-Button button credentials-revoke" data-customer="<?php echo $customer_id; ?>" href="#">
             <?php esc_html_e( 'Revoke', 'arya-license-manager' ); ?>
         </a>
-        <a class="woocommerce-Button button credentials-download" data-customer="<?php echo $customer_id; ?>" href="#">
-            <?php esc_html_e( 'Download', 'arya-license-manager' ); ?>
-        </a>
         <?php esc_html_e( 'You have a pair of access security keys.', 'arya-license-manager' ); ?>
     </div>
 

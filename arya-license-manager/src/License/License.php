@@ -81,19 +81,19 @@ class License
 
             switch( $key ) {
                 case 'arya_license':
-                    $information[ 'license' ] = wc_get_order_item_meta( $this->order_item_id, $key );
+                    $information[ 'license' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case 'arya_license_type':
-                    $information[ 'type' ] = wc_get_order_item_meta( $this->order_item_id, $key );
+                    $information[ 'type' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case 'arya_license_status':
-                    $information[ 'status' ] = wc_get_order_item_meta( $this->order_item_id, $key );
+                    $information[ 'status' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case '_arya_license_activated_at':
-                    $information[ 'activated_at' ] = wc_get_order_item_meta( $this->order_item_id, $key );
+                    $information[ 'activated_at' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case '_arya_license_expire_at':
-                    $information[ 'expire_at' ] = wc_get_order_item_meta( $this->order_item_id, $key );
+                    $information[ 'expire_at' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case 'downloads':
                     $information[ 'downloads' ] = $this->order_item->get_item_downloads();
@@ -421,14 +421,14 @@ class License
                     AND
                         `order`.`ID` = `item`.`order_id`
                     AND
-                        `order`.`post_status` LIKE 'wc-completed'
+                        `order`.`post_status` IN ('wc-completed', 'wc-processing')
                     ORDER BY `order_id` DESC;";
 
             $query = $wpdb->prepare( $sql, "%" . $wpdb->esc_like( $license ) . "%" );
 
             $result = $wpdb->get_row( $query, OBJECT );
 
-            $order_item_id = $result->order_item_id;
+            $order_item_id = $result->order_item_id ?? false;
 
             wp_cache_set( $key, $order_item_id, 'arya_license_manager', 12 * HOUR_IN_SECONDS );
         }
