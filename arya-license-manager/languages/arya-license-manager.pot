@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-16T00:22:26+00:00\n"
+"POT-Creation-Date: 2019-08-20T20:20:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: arya-license-manager\n"
@@ -62,7 +62,7 @@ msgstr ""
 #: src/Storefront/Licenses.php:74
 #: src/Storefront/Licenses.php:113
 #: src/Storefront/Licenses.php:125
-#: src/Storefront/Order.php:316
+#: src/Storefront/Order.php:314
 #: src/Storefront/Query.php:74
 #: templates/emails/email-licenses.php:17
 #: templates/myaccount/order-licenses.php:15
@@ -71,7 +71,7 @@ msgid "License"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:49
-#: src/Storefront/Order.php:328
+#: src/Storefront/Order.php:326
 msgid "Type"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:52
 #: src/Admin/License.php:184
-#: src/Storefront/Order.php:319
+#: src/Storefront/Order.php:317
 msgid "Status"
 msgstr ""
 
@@ -126,7 +126,8 @@ msgstr ""
 
 #. translators: %s of %s: number of activations
 #: src/Admin/Analytics/Licenses.php:232
-msgid "%$1s of %$2s"
+#: src/Storefront/License.php:110
+msgid "%1$s of %2$s"
 msgstr ""
 
 #. translators: %s ago: human-readable time
@@ -257,14 +258,14 @@ msgstr ""
 
 #: src/Admin/License.php:147
 #: src/Storefront/Cart.php:116
-#: src/Storefront/Order.php:355
+#: src/Storefront/Order.php:352
 msgid "Unlimited activations"
 msgstr ""
 
 #. translators: %d activation: number of activations
 #: src/Admin/License.php:149
 #: src/Storefront/Cart.php:118
-#: src/Storefront/Order.php:357
+#: src/Storefront/Order.php:354
 msgid "%d activation"
 msgid_plural "%d activations"
 msgstr[0] ""
@@ -293,7 +294,7 @@ msgstr ""
 
 #: src/Admin/License.php:235
 #: src/Storefront/License.php:155
-#: src/Storefront/Order.php:331
+#: src/Storefront/Order.php:329
 msgid "Activation date"
 msgstr ""
 
@@ -441,9 +442,9 @@ msgstr ""
 msgid "Enable this option if the product is associated to a license."
 msgstr ""
 
-#: src/Admin/Request.php:87
-#: src/Admin/Request.php:135
-#: src/Admin/Request.php:179
+#: src/Admin/Request.php:86
+#: src/Admin/Request.php:134
+#: src/Admin/Request.php:178
 msgid "It is not possible to perform an action since the order has not been completed."
 msgstr ""
 
@@ -540,7 +541,7 @@ msgid "You do not have permission to access this page."
 msgstr ""
 
 #: src/Storefront/Cart.php:99
-#: src/Storefront/Order.php:322
+#: src/Storefront/Order.php:320
 msgid "Activation period"
 msgstr ""
 
@@ -571,12 +572,16 @@ msgstr ""
 msgid "»"
 msgstr ""
 
-#: src/Storefront/Order.php:325
+#: src/Storefront/Order.php:323
 msgid "Activations limit"
 msgstr ""
 
-#: src/Storefront/Order.php:334
+#: src/Storefront/Order.php:332
 msgid "Expiry date"
+msgstr ""
+
+#: src/Storefront/Product.php:79
+msgid "Add to cart"
 msgstr ""
 
 #: templates/myaccount/credentials.php:12
@@ -587,19 +592,15 @@ msgstr ""
 msgid "There are no security credentials."
 msgstr ""
 
-#: templates/myaccount/credentials.php:24
-msgid "Download"
-msgstr ""
-
-#: templates/myaccount/credentials.php:26
+#: templates/myaccount/credentials.php:23
 msgid "You have a pair of access security keys."
 msgstr ""
 
-#: templates/myaccount/credentials.php:31
+#: templates/myaccount/credentials.php:28
 msgid "Security credentials are used as an authentication mechanism to activate and deactivate licenses remotely."
 msgstr ""
 
-#: templates/myaccount/credentials.php:33
+#: templates/myaccount/credentials.php:30
 msgid "For your protection, download and store your credentials securely and do not share them."
 msgstr ""
 

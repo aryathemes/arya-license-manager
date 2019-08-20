@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
         <?php list( $product, $license ) = $_license; ?>
 
-        <?php $product = sprintf( '<a href="%s">%s</a>', $product->get_permalink(), $product->get_title() ); ?>
+        <?php $product = sprintf( '<a href="%1$s">%2$s</a>', $product->get_permalink(), $product->get_title() ); ?>
 
         <tr>
             <td class="td"><?php echo $product; ?></td>

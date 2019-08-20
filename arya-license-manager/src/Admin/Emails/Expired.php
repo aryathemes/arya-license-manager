@@ -61,7 +61,7 @@ class Expired extends \WC_Email
      */
     public function get_default_heading()
     {
-        return esc_html__( 'License expired: <code>{license}</code>', 'arya-license-manager' );
+        return esc_html__( 'Expired license: <code>{license}</code>', 'arya-license-manager' );
     }
 
     /**

@@ -171,9 +171,9 @@ class License
         }
 
         /* Customer information */
-        $customer = $order->get_billing_company() ?: sprintf( '%s %s', $order->get_billing_first_name(), $order->get_billing_last_name() );
+        $customer = $order->get_billing_company() ?: sprintf( '%1$s %2$s', $order->get_billing_first_name(), $order->get_billing_last_name() );
 
-        $customer = sprintf( '<a href="%s">#%s %s</a>', get_edit_post_link( $order_id ), $order_id, $customer ); ?>
+        $customer = sprintf( '<a href="%1$s">#%2$s %3$s</a>', get_edit_post_link( $order_id ), $order_id, $customer ); ?>
 
         <table class="information-table widefat">
             <tr>
@@ -190,7 +190,7 @@ class License
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Product', 'arya-license-manager' ); ?></td>
-                <td><?php printf( '<a href="%s">%s</a>', get_edit_post_link( $product_id ), $product->get_name() ); ?></td>
+                <td><?php printf( '<a href="%1$s">%2$s</a>', get_edit_post_link( $product_id ), $product->get_name() ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Service start date', 'arya-license-manager' ); ?></td>

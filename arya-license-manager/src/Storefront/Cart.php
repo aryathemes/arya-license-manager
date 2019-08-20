@@ -140,6 +140,6 @@ class Cart
 
         $interval = $value > 1 ? $interval : mb_substr( $interval, 0, -1 );
 
-        return sprintf( '%s %s', $value, $interval );
+        return sprintf( '%1$s %2$s', $value, $interval );
     }
 }

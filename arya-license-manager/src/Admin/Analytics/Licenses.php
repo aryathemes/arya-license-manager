@@ -162,7 +162,7 @@ class Licenses extends Table
      */
     public function column_cb( $item )
     {
-        $data = sprintf( '%s,%s', $item['license'], $item['order']->get_id() );
+        $data = sprintf( '%1$s,%2$s', $item['license'], $item['order']->get_id() );
 
         return sprintf( '<input type="checkbox" name="checked[]" value="%s" />', $data );
     }
@@ -184,7 +184,7 @@ class Licenses extends Table
             'order'   => $item['order']->get_id(),
         ], admin_url( 'admin.php?page=wc-licenses' ) );
 
-        $license_link = sprintf( '<a href="%s"><code class="%s">%s</code></a>',
+        $license_link = sprintf( '<a href="%1$s"><code class="%2$s">%3$s</code></a>',
             esc_url( $license_url ),
             esc_attr( $item['status'] ),
             esc_attr( $item['license'] )
@@ -214,7 +214,7 @@ class Licenses extends Table
 
         $product_id = 0 <> $product->get_parent_id() ? $product->get_parent_id() : $product->get_id();
 
-        return sprintf( '<a href="%s">%s</a>', get_edit_post_link( $product_id ), $product->get_name() );
+        return sprintf( '<a href="%1$s">%2$s</a>', get_edit_post_link( $product_id ), $product->get_name() );
     }
 
     /**
@@ -243,7 +243,7 @@ class Licenses extends Table
 
         $text = $this->getStatus( $status );
 
-        return sprintf( '<span class="%s">%s</span>', esc_attr( $status ), esc_html( $text ) );
+        return sprintf( '<span class="%1$s">%2$s</span>', esc_attr( $status ), esc_html( $text ) );
     }
 
     /**
@@ -290,9 +290,9 @@ class Licenses extends Table
     {
         $order = $item['order'];
 
-        $customer = $order->get_billing_company() ?: sprintf( '%s %s', $order->get_billing_first_name(), $order->get_billing_last_name() );
+        $customer = $order->get_billing_company() ?: sprintf( '%1$s %2$s', $order->get_billing_first_name(), $order->get_billing_last_name() );
 
-        return sprintf( '<a href="%s">#%s %s</a>', get_edit_post_link( $order->get_id() ), $order->get_id(), $customer );
+        return sprintf( '<a href="%1$s">#%2$s %3$s</a>', get_edit_post_link( $order->get_id() ), $order->get_id(), $customer );
     }
 
     /**

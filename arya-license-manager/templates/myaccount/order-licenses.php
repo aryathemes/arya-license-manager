@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
         <?php
         /* Product */
-        $product = sprintf( '<a href="%s">%s</a>', $product->get_permalink(), $product->get_title() );
+        $product = sprintf( '<a href="%1$s">%2$s</a>', $product->get_permalink(), $product->get_title() );
 
         /* Actions */
         $license_endpoint = wc_get_endpoint_url( 'view-license', $license, wc_get_page_permalink( 'myaccount' ) );
@@ -36,7 +36,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
         $license_details = esc_html__( 'Manage', 'arya-license-manager' );
 
-        $action = sprintf( '<a class="woocommerce-button button alt" href="%s">%s</a>', $license_endpoint, $license_details ); ?>
+        $action = sprintf( '<a class="woocommerce-button button alt" href="%1$s">%2$s</a>', $license_endpoint, $license_details ); ?>
 
         <tr>
             <td data-title="<?php esc_html_e( 'Product', 'arya-license-manager' ); ?>"><?php echo $product; ?></td>

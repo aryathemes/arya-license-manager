@@ -82,12 +82,12 @@ class License
         /* Order */
         $order = $license->getOrder();
 
-        $order_link = sprintf( '<a href="%s">#%s</a>', $order->get_view_order_url(), $order->get_order_number() );
+        $order_link = sprintf( '<a href="%1$s">#%2$s</a>', $order->get_view_order_url(), $order->get_order_number() );
 
         /* Product */
         $product = $license->getProduct();
 
-        $product_link = sprintf( '<a href="%s">%s</a>', $product->get_permalink(), $product->get_name() );
+        $product_link = sprintf( '<a href="%1$s">%2$s</a>', $product->get_permalink(), $product->get_name() );
 
         /* Dates */
         if ( $activation_date = $license->getActivationDate() ) {
@@ -107,7 +107,7 @@ class License
 
         $limit = intval( $license->getActivationsLimit() );
 
-        $activations = sprintf( '%s of %s', $count, $limit ?: __( 'unlimited', 'arya-license-manager' ) ); ?>
+        $activations = sprintf( __( '%1$s of %2$s', 'arya-license-manager' ), $count, $limit ?: __( 'unlimited', 'arya-license-manager' ) ); ?>
 
         <table class="shop_table license-manager-details-table">
             <tr>
@@ -230,8 +230,8 @@ class License
             </p>
 
             <button class="associate-button button alt" type="button"
-                data-license="<?= esc_attr( $license ) ?>"
-                data-order="<?= esc_attr( $order_id ) ?>">
+                data-license="<?php echo esc_attr( $license ); ?>"
+                data-order="<?php echo esc_attr( $order_id ); ?>">
                 <?php esc_html_e( 'Accept', 'arya-license-manager' ); ?>
             </button>
 

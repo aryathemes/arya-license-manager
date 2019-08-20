@@ -89,12 +89,12 @@ class Licenses
 
         $order_endpoint = wc_get_endpoint_url( 'view-order', $order_id, wc_get_page_permalink( 'myaccount' ) );
 
-        $order = sprintf( '<a href="%s">#%s</a>', esc_url( $order_endpoint ), $order_id );
+        $order = sprintf( '<a href="%1$s">#%2$s</a>', esc_url( $order_endpoint ), $order_id );
 
         /* Product ID */
         $product_id = intval( $detail->getProduct()->get_id() );
 
-        $product = sprintf( '<a href="%s">%s</a>', get_permalink( $product_id ), get_the_title( $product_id ) );
+        $product = sprintf( '<a href="%1$s">%2$s</a>', get_permalink( $product_id ), get_the_title( $product_id ) );
 
         /* Actions */
         $license_endpoint = wc_get_endpoint_url( 'view-license', $license, wc_get_page_permalink( 'myaccount' ) );
@@ -105,7 +105,7 @@ class Licenses
 
         $license_details = esc_html__( 'Manage', 'arya-license-manager' );
 
-        $action = sprintf( '<a class="woocommerce-button button alt" href="%s">%s</a>', $license_endpoint, $license_details ); ?>
+        $action = sprintf( '<a class="woocommerce-button button alt" href="%1$s">%2$s</a>', $license_endpoint, $license_details ); ?>
 
         <tr>
             <td data-title="<?php esc_html_e( 'Order',    'arya-license-manager' ); ?>"><?= $order ?></td>
