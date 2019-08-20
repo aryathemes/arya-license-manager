@@ -33,6 +33,8 @@ class Product
     {
         add_filter( 'woocommerce_is_sold_individually', [ $this, 'soldIndividually' ], 10, 2 );
 
+        add_filter( 'woocommerce_product_add_to_cart_text', [ $this, 'addToCartText' ], 10, 2 );
+
         add_action( 'woocommerce_license_add_to_cart', [ $this, 'addToCart' ] );
     }
 
@@ -64,6 +66,20 @@ class Product
         }
 
         return $sold_individually;
+    }
+
+    /**
+     * Changes 'Read more' to 'Add to Cart' text.
+     *
+     * @since 1.0.0
+     */
+    public function addToCartText( $text, $product )
+    {
+        if ( 'license' == $product->get_type() ) {
+            $text = __( 'Add to cart', 'arya-license-manager' );
+        }
+
+        return $text;
     }
 
     /**
