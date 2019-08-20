@@ -229,7 +229,7 @@ class Licenses extends Table
         $limit = 0 <> $limit ? intval( $limit ) : __( 'unlimited', 'arya-license-manager' );
 
         /* translators: %s of %s: number of activations */
-        return sprintf( esc_html__( '%$1s of %$2s', 'arya-license-manager' ), $current, $limit );
+        return sprintf( esc_html__( '%1$s of %2$s', 'arya-license-manager' ), $current, $limit );
     }
 
     /**
