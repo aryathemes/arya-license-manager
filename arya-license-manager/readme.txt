@@ -1,6 +1,6 @@
 === Arya License Manager ===
 Contributors: aryathemes
-Tags: software license, license manager, license, woocommerce, perpetual
+Tags: software license, license manager, license, woocommerce, perpetual, on-demand software, license keys, software license manager
 Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 7.1
@@ -14,8 +14,10 @@ Arya License Manager integrates with WooCommerce to simplify the creation and ma
 
 Arya License Manager integrates with WooCommerce to simplify the creation and management of software licenses.
 
+* Create and manage Perpetual and On-demand software licenses
 * Limit the licenses per activations
 * Product variable and price variations support
+* Security credentials to authenticate and authorize your API requests
 
 == Installation ==
 
@@ -23,7 +25,7 @@ Arya License Manager integrates with WooCommerce to simplify the creation and ma
 
 * WordPress 5.0 or greater
 * WooCommerce 3.6.0 or greater
-* PHP 7.0 or greater
+* PHP 7.1 or greater
 * MySQL 5.6 or greater
 
 = Automatic installation =
@@ -35,6 +37,12 @@ In the search field type "Arya License Manager", then click "Search Plugins" Onc
 = Manual installation =
 
 The manual installation method involves downloading the plugin and uploading it to your web using a FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-uninstallation).
+
+== Screenshots ==
+
+1. The screenshot description corresponds to screenshot-1.(png|jpg|jpeg|gif).
+2. The screenshot description corresponds to screenshot-2.(png|jpg|jpeg|gif).
+3. The screenshot description corresponds to screenshot-3.(png|jpg|jpeg|gif).
 
 == Changelog ==
 
