@@ -5,7 +5,7 @@ management of software licenses.
 
 * Create and manage Perpetual and On-demand software licenses
 * Limit the licenses per activations
-* Product variable and price variations support
+* Simple and Variable products are supported
 * Security credentials to authenticate and authorize your API requests
 
 ## Recommended requirements
