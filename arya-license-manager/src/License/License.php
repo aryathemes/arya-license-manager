@@ -90,15 +90,21 @@ class License
                     $information[ 'status' ] = wc_get_order_item_meta( $item_id, $key );
                     break;
                 case '_arya_license_activated_at':
-                    $information[ 'activated_at' ] = wc_get_order_item_meta( $item_id, $key );
+                    $activated_at = wc_get_order_item_meta( $item_id, $key );
+                    $information[ 'activated_at' ] = date( DATE_ISO8601, strtotime( $activated_at ) );
                     break;
                 case '_arya_license_expire_at':
-                    $information[ 'expire_at' ] = wc_get_order_item_meta( $item_id, $key );
+                    $expire_at = wc_get_order_item_meta( $item_id, $key );
+                    $information[ 'expire_at' ] = date( DATE_ISO8601, strtotime( $expire_at ) );
                     break;
                 case 'downloads':
                     $information[ 'downloads' ] = $this->order_item->get_item_downloads();
                     break;
             }
+        }
+
+        if ( 'valid' !== $information[ 'status' ] ) {
+            unset( $information[ 'downloads' ] );
         }
 
         return $information;
