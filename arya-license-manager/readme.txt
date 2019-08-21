@@ -38,13 +38,17 @@ In the search field type "Arya License Manager", then click "Search Plugins" Onc
 
 The manual installation method involves downloading the plugin and uploading it to your web using a FTP application. The WordPress codex contains [instructions on how to do this here](https://wordpress.org/support/article/managing-plugins/#manual-uninstallation).
 
-== Screenshots ==
+== Frequently Asked Questions ==
 
-1. The screenshot description corresponds to screenshot-1.(png|jpg|jpeg|gif).
-2. The screenshot description corresponds to screenshot-2.(png|jpg|jpeg|gif).
-3. The screenshot description corresponds to screenshot-3.(png|jpg|jpeg|gif).
+= User guide =
+
+For help setting up please refer to our [user guide](https://github.com/aryathemes/arya-license-manager/wiki/Getting-Started).
+
+= REST API documentation =
+
+You can find the documentation of our REST API on the [Arya License Manager Wiki](https://github.com/aryathemes/arya-license-manager/wiki/REST-API).
 
 == Changelog ==
 
 = 1.0.0 =
-* Initial release.
+* Initial release
