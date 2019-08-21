@@ -343,6 +343,8 @@ class Order
      */
     public function itemDisplayValue( $display_value, $meta, $wc_order_item )
     {
+        $order_status = $wc_order_item->get_order()->get_status();
+
         switch ( $meta->key ) {
             case 'arya_license':
                 $display_value = "<code>$display_value</code>";
@@ -360,6 +362,16 @@ class Order
                 break;
             case 'arya_license_status':
                 $display_value = $this->getStatus( $display_value );
+                break;
+            case '_arya_license_activated_at':
+                if ( ! in_array( $order_status, wc_get_is_paid_statuses() ) ) {
+                    $display_value = '-';
+                }
+                break;
+            case '_arya_license_expire_at':
+                if ( ! in_array( $order_status, wc_get_is_paid_statuses() ) ) {
+                    $display_value = '-';
+                }
                 break;
         }
 

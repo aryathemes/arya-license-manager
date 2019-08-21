@@ -157,23 +157,27 @@ class License
 
         $order_id = $order->get_id();
 
+        $order_status = $order->get_status();
+
         /* Dates */
-        if ( $activation_date = $this->license->getActivationDate() ) {
+        if ( in_array( $order_status, wc_get_is_paid_statuses() ) ) {
             $activation_date = date( 'F j, Y — H:i:s', strtotime( $activation_date ) );
         } else {
-            $activation_date = '—';
+            $activation_date = '-';
         }
 
-        if ( $expiration_date = $this->license->getExpirationDate() ) {
+        if ( in_array( $order_status, wc_get_is_paid_statuses() ) ) {
             $expiration_date = date( 'F j, Y — H:i:s', strtotime( $expiration_date ) );
         } else {
-            $expiration_date = '—';
+            $expiration_date = '-';
         }
 
         /* Customer information */
         $customer = $order->get_billing_company() ?: sprintf( '%1$s %2$s', $order->get_billing_first_name(), $order->get_billing_last_name() );
 
-        $customer = sprintf( '<a href="%1$s">#%2$s %3$s</a>', get_edit_post_link( $order_id ), $order_id, $customer ); ?>
+        $order_status = wc_get_order_status_name( $order->get_status() );
+
+        $customer = sprintf( '<a href="%1$s">#%2$s %3$s (%4$s)</a>', get_edit_post_link( $order_id ), $order_id, $customer, $order_status ); ?>
 
         <table class="information-table widefat">
             <tr>
