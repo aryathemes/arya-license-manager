@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit; ?>
 
     <div class="woocommerce-info">
         <a class="woocommerce-Button button credentials-generate" data-customer="<?php echo $customer_id; ?>" href="#">
-            <?php esc_html_e( 'Generate', 'arya-license-manager' ); ?>
+            <?php esc_html_e( 'Generate and Download', 'arya-license-manager' ); ?>
         </a>
         <?php esc_html_e( 'There are no security credentials.', 'arya-license-manager' ); ?>
     </div>
