@@ -58,6 +58,14 @@ class Generator
             $license = trim( chunk_split( $license, $chunklen, '-' ), '-' );
         }
 
+        if ( ! empty( $prefix = get_option( 'arya_license_manager_prefix', '' ) ) ) {
+            $license = "{$prefix}-{$license}";
+        }
+
+        if ( ! empty( $suffix = get_option( 'arya_license_manager_suffix', '' ) ) ) {
+            $license = "{$license}-{$suffix}";
+        }
+
         return apply_filters( 'arya_license_manager_create_license', $license, $length );
     }
 }

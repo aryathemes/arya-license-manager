@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-21T06:25:39+00:00\n"
+"POT-Creation-Date: 2019-08-23T01:30:56+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: arya-license-manager\n"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: src/Admin/Admin.php:96
 #: src/Admin/Settings.php:62
-#: src/Admin/Settings.php:166
+#: src/Admin/Settings.php:182
 #: src/Storefront/Account.php:84
 #: src/Storefront/Query.php:71
 #: templates/emails/email-licenses.php:8
@@ -457,51 +457,59 @@ msgid "Length"
 msgstr ""
 
 #: src/Admin/Settings.php:91
-msgid "Number of characters to generate a new license."
+msgid "Number of characters to generate a new license. Licenses shall have a minimum length of 10 characters."
 msgstr ""
 
-#: src/Admin/Settings.php:92
-msgid "Licenses shall have a minimum length of 10 characters."
-msgstr ""
-
-#: src/Admin/Settings.php:104
+#: src/Admin/Settings.php:103
 msgid "Chunks"
 msgstr ""
 
-#: src/Admin/Settings.php:105
+#: src/Admin/Settings.php:104
 msgid "Split a license into chunks."
 msgstr ""
 
+#: src/Admin/Settings.php:116
+msgid "Prefix"
+msgstr ""
+
+#: src/Admin/Settings.php:117
+msgid "Add the prefix to the generated license."
+msgstr ""
+
+#: src/Admin/Settings.php:125
+msgid "Suffix"
+msgstr ""
+
 #: src/Admin/Settings.php:126
+msgid "Add the suffix to the generated license."
+msgstr ""
+
+#: src/Admin/Settings.php:143
 msgid "Account page"
 msgstr ""
 
-#: src/Admin/Settings.php:131
+#: src/Admin/Settings.php:148
 msgid "Pagination"
 msgstr ""
 
-#: src/Admin/Settings.php:132
-msgid "Number of licenses per page."
-msgstr ""
-
-#: src/Admin/Settings.php:133
+#: src/Admin/Settings.php:149
 msgid "Limits the number of licenses to display on \"My Account\" page."
 msgstr ""
 
-#: src/Admin/Settings.php:167
-#: src/Admin/Settings.php:204
+#: src/Admin/Settings.php:183
+#: src/Admin/Settings.php:220
 msgid "Endpoint for the \"Licenses\" page."
 msgstr ""
 
-#: src/Admin/Settings.php:174
+#: src/Admin/Settings.php:190
 msgid "View license"
 msgstr ""
 
-#: src/Admin/Settings.php:175
+#: src/Admin/Settings.php:191
 msgid "Endpoint for the \"View license\" page."
 msgstr ""
 
-#: src/Admin/Settings.php:203
+#: src/Admin/Settings.php:219
 #: src/Storefront/Account.php:94
 #: src/Storefront/Query.php:77
 msgid "Security Credentials"

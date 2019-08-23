@@ -59,7 +59,7 @@ class Settings
      */
     public function sectionsProductsLicense( $sections )
     {
-        $sections['license-manager'] = esc_html__( 'Licenses', 'arya-license-manager' );
+        $sections['license-manager'] = __( 'Licenses', 'arya-license-manager' );
 
         return $sections;
     }
@@ -81,35 +81,52 @@ class Settings
         $license_settings[] = [
             'id'   => 'arya_license_manager_title',
             'type' => 'title',
-            'name' => esc_html__( 'Arya License Manager', 'arya-license-manager' ),
-            'desc' => esc_html__( 'The following options are used to configure Arya License Manager', 'arya-license-manager' )
+            'name' => __( 'Arya License Manager', 'arya-license-manager' ),
+            'desc' => __( 'The following options are used to configure Arya License Manager', 'arya-license-manager' )
         ];
 
         $license_settings[] = [
             'id'       => 'arya_license_manager_length',
-            'name'     => esc_html__( 'Length', 'arya-license-manager' ),
-            'desc'     => esc_html__( 'Number of characters to generate a new license.', 'arya-license-manager' ),
-            'desc_tip' => esc_html__( 'Licenses shall have a minimum length of 10 characters.', 'arya-license-manager' ),
+            'name'     => __( 'Length', 'arya-license-manager' ),
+            'desc_tip' => __( 'Number of characters to generate a new license. Licenses shall have a minimum length of 10 characters.', 'arya-license-manager' ),
             'type'     => 'number',
             'default'  => '25',
             'custom_attributes' => [
                 'step' => 1,
                 'min'  => 10
             ],
-            'css' => 'max-width: 70px;'
+            'css' => 'max-width: 80px;'
         ];
 
         $license_settings[] = [
             'id'       => 'arya_license_manager_chunks',
-            'name'     => esc_html__( 'Chunks', 'arya-license-manager' ),
-            'desc'     => esc_html__( 'Split a license into chunks.', 'arya-license-manager' ),
+            'name'     => __( 'Chunks', 'arya-license-manager' ),
+            'desc_tip' => __( 'Split a license into chunks.', 'arya-license-manager' ),
             'type'     => 'number',
             'default'  => '5',
             'custom_attributes' => [
                 'step' => 1,
                 'min'  => 0
             ],
-            'css' => 'max-width: 70px;'
+            'css' => 'max-width: 80px;'
+        ];
+
+        $license_settings[] = [
+            'id'       => 'arya_license_manager_prefix',
+            'name'     => __( 'Prefix', 'arya-license-manager' ),
+            'desc_tip' => __( 'Add the prefix to the generated license.', 'arya-license-manager' ),
+            'type'     => 'text',
+            'default'  => '',
+            'css'      => 'max-width: 80px;'
+        ];
+
+        $license_settings[] = [
+            'id'       => 'arya_license_manager_suffix',
+            'name'     => __( 'Suffix', 'arya-license-manager' ),
+            'desc_tip' => __( 'Add the suffix to the generated license.', 'arya-license-manager' ),
+            'type'     => 'text',
+            'default'  => '',
+            'css'      => 'max-width: 80px;'
         ];
 
         $license_settings[] = [
@@ -123,21 +140,20 @@ class Settings
         $license_settings[] = [
             'id'    => 'arya_license_manager_account',
             'type'  => 'title',
-            'title' => esc_html__( 'Account page', 'arya-license-manager' )
+            'title' => __( 'Account page', 'arya-license-manager' )
         ];
 
         $license_settings[] = [
             'id'       => 'arya_license_manager_account_pagination',
-            'name'     => esc_html__( 'Pagination', 'arya-license-manager' ),
-            'desc'     => esc_html__( 'Number of licenses per page.', 'arya-license-manager' ),
-            'desc_tip' => esc_html__( 'Limits the number of licenses to display on "My Account" page.', 'arya-license-manager' ),
+            'name'     => __( 'Pagination', 'arya-license-manager' ),
+            'desc_tip' => __( 'Limits the number of licenses to display on "My Account" page.', 'arya-license-manager' ),
             'type'     => 'number',
             'default'  => '10',
             'custom_attributes' => [
                 'step' => 1,
                 'min'  => 1
             ],
-            'css' => 'max-width: 70px;'
+            'css' => 'max-width: 80px;'
         ];
 
         $license_settings[] = [
@@ -163,16 +179,16 @@ class Settings
 
         $endpoints = [
             [
-                'title'    => esc_html__( 'Licenses', 'arya-license-manager' ),
-                'desc'     => esc_html__( 'Endpoint for the "Licenses" page.', 'arya-license-manager' ),
+                'title'    => __( 'Licenses', 'arya-license-manager' ),
+                'desc'     => __( 'Endpoint for the "Licenses" page.', 'arya-license-manager' ),
                 'type'     => 'text',
                 'id'       => 'arya_license_manager_licenses_endpoint',
                 'default'  => 'licenses',
                 'desc_tip' => true,
             ],
             [
-                'title'    => esc_html__( 'View license', 'arya-license-manager' ),
-                'desc'     => esc_html__( 'Endpoint for the "View license" page.', 'arya-license-manager' ),
+                'title'    => __( 'View license', 'arya-license-manager' ),
+                'desc'     => __( 'Endpoint for the "View license" page.', 'arya-license-manager' ),
                 'type'     => 'text',
                 'id'       => 'arya_license_manager_view-license_endpoint',
                 'default'  => 'view-license',
@@ -200,8 +216,8 @@ class Settings
 
         $endpoints = [
             [
-                'title'    => esc_html__( 'Security Credentials', 'arya-license-manager' ),
-                'desc'     => esc_html__( 'Endpoint for the "Licenses" page.', 'arya-license-manager' ),
+                'title'    => __( 'Security Credentials', 'arya-license-manager' ),
+                'desc'     => __( 'Endpoint for the "Licenses" page.', 'arya-license-manager' ),
                 'type'     => 'text',
                 'id'       => 'arya_license_manager_credentials_endpoint',
                 'default'  => 'crendentials',
