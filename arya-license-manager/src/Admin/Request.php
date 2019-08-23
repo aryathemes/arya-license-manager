@@ -38,10 +38,6 @@ class Request
         /* Activations */
         add_action( 'wp_ajax_activation_add', [ $this, 'activationAdd' ] );
         add_action( 'wp_ajax_activation_revoke', [ $this, 'activationRevoke' ] );
-
-        /* Credentials */
-        add_action( 'wp_ajax_credentials_create', [ $this, 'credentialsCreate' ] );
-        add_action( 'wp_ajax_credentials_revoke', [ $this, 'credentialsRevoke' ] );
     }
 
     /**
@@ -185,40 +181,5 @@ class Request
         $response = (new License( $license, intval( $order_id ) ))->removeActivation( $constraint );
 
         wp_send_json_success( [ 'response' => 200 ] );
-    }
-
-    /**
-     * AJAX end point to create and download security credentials.
-     *
-     * @since 1.0.0
-     */
-    public function credentialsCreate()
-    {
-        check_ajax_referer( 'arya-license-manager-credentials', 'security' );
-
-        /* Retrieves customer id */
-        $customer_id = sanitize_text_field( $_POST['customer_id'] );
-
-        $credentials = (new Credentials)->create( intval( $customer_id ) );
-
-        echo json_encode( $credentials, 200 );
-        die();
-    }
-
-    /**
-     * AJAX endpoint to revoke security credentials.
-     *
-     * @since 1.0.0
-     */
-    public function credentialsRevoke()
-    {
-        check_ajax_referer( 'arya-license-manager-credentials-revoke', 'security' );
-
-        /* Retrieves customer id */
-        $customer_id = sanitize_text_field( $_POST['customer_id'] );
-
-        $credentials = (new Credentials)->revokeCredentials( intval( $customer_id ) );
-
-        wp_send_json_success( $credentials, 201 );
     }
 }

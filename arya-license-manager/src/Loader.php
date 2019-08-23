@@ -35,8 +35,6 @@ class Loader
      */
     private function __construct()
     {
-        add_action( 'init', [ $this, 'install' ] );
-
         add_action( 'init', [ $this, 'loadTextdomain' ] );
 
         add_action( 'init', [ $this, 'storefront' ] );
@@ -48,8 +46,6 @@ class Loader
         add_action( 'init', [ $this, 'admin' ] );
 
         add_action( 'plugins_loaded', [ $this, 'query' ] );
-
-        add_action( 'plugins_loaded', [ $this, 'authentication' ] );
 
         register_deactivation_hook( ARYA_LICENSE_MANAGER_FILE, [ $this, 'unschedule' ] );
     }
@@ -68,23 +64,6 @@ class Loader
         }
 
         return self::$instance;
-    }
-
-    /**
-     * Install the database to manage the licenses.
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function install()
-    {
-        if ( false === ( $db_version = get_option( 'arya_license_manager_db_version', false ) ) ) {
-            Install::newInstance()->create();
-            return;
-        }
-
-        flush_rewrite_rules();
     }
 
     /**
@@ -135,19 +114,6 @@ class Loader
     public function query()
     {
         new \Arya\LicenseManager\Storefront\Query;
-    }
-
-    /**
-     * Determines that a user is who he claims to be through security
-     * credentials.
-     *
-     * @since 1.0.0
-     *
-     * @return void
-     */
-    public function authentication()
-    {
-        \Arya\LicenseManager\Api\Authentication::newInstance();
     }
 
     /**

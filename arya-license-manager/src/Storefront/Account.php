@@ -35,11 +35,8 @@ class Account
         /* Account page */
         add_filter( 'woocommerce_account_menu_items', [ $this, 'menuItems' ], 10, 1 );
 
-        add_filter( 'woocommerce_get_endpoint_url', [ $this, 'endpointUrl' ], 10, 4 );
-
         add_action( 'woocommerce_account_view-license_endpoint', [ $this, 'endpointLicense' ] );
         add_action( 'woocommerce_account_licenses_endpoint', [ $this, 'endpointLicenses' ] );
-        add_action( 'woocommerce_account_credentials_endpoint', [ $this, 'endpointCredentials' ] );
 
         add_action( 'woocommerce_order_details_before_order_table', [ $this, 'orderLicenses' ], 10, 1 );
 
@@ -85,31 +82,7 @@ class Account
 
         $items = $top + $bottom;
 
-        /* Adds 'Security' link */
-        $customer = $items['customer-logout'];
-
-        unset( $items['customer-logout'] );
-
-        $items += [
-            'credentials'     => esc_html__( 'Security Credentials', 'arya-license-manager' ),
-            'customer-logout' => $customer
-        ];
-
         return $items;
-    }
-
-    /**
-     * Adds a nonce value to the url to access the security credentials.
-     *
-     * @since 1.0.0
-     */
-    public function endpointUrl( $url, $endpoint, $value, $permalink )
-    {
-        if ( $endpoint == get_option( 'arya_license_manager_credentials_endpoint', 'credentials' ) ) {
-            $url = wp_nonce_url( $url, -1, '_nonce' );
-        }
-
-        return $url;
     }
 
     /**
@@ -173,28 +146,6 @@ class Account
     }
 
     /**
-     * Gets the 'Security Credentials' template.
-     *
-     * @since 1.0.0
-     */
-    public function endpointCredentials()
-    {
-        if ( ! isset( $_GET['_nonce'] ) || ! wp_verify_nonce( $_GET['_nonce'] ) ) {
-            wc_print_notice( esc_html__( 'You do not have permission to access this page.', 'arya-license-manager' ), 'error' );
-            return;
-        }
-
-        $customer_id = get_current_user_id();
-
-        $credentials = (new Credentials)->getCredentials( $customer_id );
-
-        wc_get_template( 'myaccount/credentials.php', [
-            'customer_id' => $customer_id,
-            'credentials' => $credentials
-        ], '', ARYA_LICENSE_MANAGER_TEMPLATES );
-    }
-
-    /**
      * Adds the license information into order details.
      *
      * @since 1.0.0
@@ -237,9 +188,6 @@ class Account
 
         wp_register_script( 'license-manager-activations',
             plugins_url( "static/js/account-license$suffix.js", ARYA_LICENSE_MANAGER_FILE ), [ 'jquery', 'clipboard-js' ], null, true );
-
-        wp_register_script( 'license-manager-credentials',
-            plugins_url( "static/js/account-credentials$suffix.js", ARYA_LICENSE_MANAGER_FILE ), [ 'jquery' ], null, true );
     }
 
     /**
@@ -264,15 +212,5 @@ class Account
         wp_localize_script( 'license-manager-activations', 'arya_license_manager_activation', $activations );
 
         wp_enqueue_script( 'license-manager-activations' );
-
-        $credentials = [
-            'ajaxurl'                    => $admin_ajax,
-            'credentials_create_nonce'   => wp_create_nonce( 'arya-license-manager-credentials' ),
-            'credentials_download_nonce' => wp_create_nonce( 'arya-license-manager-credentials-download' ),
-            'credentials_revoke_nonce'   => wp_create_nonce( 'arya-license-manager-credentials-revoke' )
-        ];
-        wp_localize_script( 'license-manager-credentials', 'arya_license_manager_credentials', $credentials );
-
-        wp_enqueue_script( 'license-manager-credentials' );
     }
 }

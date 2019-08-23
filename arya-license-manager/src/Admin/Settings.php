@@ -33,7 +33,6 @@ class Settings
 
         /* Advanced */
         add_filter( 'woocommerce_get_settings_advanced', [ $this, 'settingsAdvancedLicense' ], 10, 2 );
-        add_filter( 'woocommerce_get_settings_advanced', [ $this, 'settingsAdvancedCredentials' ], 20, 2 );
     }
 
     /**
@@ -197,35 +196,6 @@ class Settings
         ];
 
         array_splice( $settings, ( $index + 1 ), 0, $endpoints );
-
-        return $settings;
-    }
-
-    /**
-     * Adds endpoints settings.
-     *
-     * @since 1.0.0
-     */
-    public function settingsAdvancedCredentials( $settings, $current_section )
-    {
-        if ( ! empty( $current_section ) ) {
-            return $settings;
-        }
-
-        $index = array_search( 'woocommerce_logout_endpoint', array_column( $settings, 'id' ) );
-
-        $endpoints = [
-            [
-                'title'    => __( 'Security Credentials', 'arya-license-manager' ),
-                'desc'     => __( 'Endpoint for the "Licenses" page.', 'arya-license-manager' ),
-                'type'     => 'text',
-                'id'       => 'arya_license_manager_credentials_endpoint',
-                'default'  => 'crendentials',
-                'desc_tip' => true,
-            ]
-        ];
-
-        array_splice( $settings, ( $index - 1 ), 0, $endpoints );
 
         return $settings;
     }

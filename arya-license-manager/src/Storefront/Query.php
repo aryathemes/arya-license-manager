@@ -27,7 +27,6 @@ class Query extends \WC_Query
             /* Account page titles */
             add_filter( 'woocommerce_endpoint_view-license_title', [ $this, 'title' ], 10, 2 );
             add_filter( 'woocommerce_endpoint_licenses_title',     [ $this, 'title' ], 10, 2 );
-            add_filter( 'woocommerce_endpoint_credentials_title',  [ $this, 'title' ], 10, 2 );
         }
     }
 
@@ -40,8 +39,7 @@ class Query extends \WC_Query
     {
         $query_license = [
             'licenses'     => get_option( 'arya_license_manager_licenses_endpoint',     'licenses'     ),
-            'view-license' => get_option( 'arya_license_manager_view-license_endpoint', 'view-license' ),
-            'credentials'  => get_option( 'arya_license_manager_credentials_endpoint',  'credentials'  )
+            'view-license' => get_option( 'arya_license_manager_view-license_endpoint', 'view-license' )
         ];
 
         return array_merge( $query_vars, $query_license );
@@ -73,10 +71,6 @@ class Query extends \WC_Query
             case 'view-license':
                 $title = esc_html__( 'License', 'arya-license-manager' );
                 break;
-            case 'credentials':
-                $title = esc_html__( 'Security Credentials', 'arya-license-manager' );
-                break;
-            default:
         }
 
         return $title;

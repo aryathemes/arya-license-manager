@@ -17,7 +17,6 @@ Arya License Manager integrates with WooCommerce to simplify the creation and ma
 * Create and manage Perpetual and On-demand software licenses
 * Limit the licenses per activations
 * Simple and Variable products are supported
-* Security credentials to authenticate and authorize your API requests
 
 == Installation ==
 
@@ -40,11 +39,11 @@ The manual installation method involves downloading the plugin and uploading it 
 
 == Frequently Asked Questions ==
 
-= User guide =
+= Where do I find the documentation? =
 
 For help setting up please refer to our [user guide](https://github.com/aryathemes/arya-license-manager/wiki).
 
-= REST API documentation =
+= Where do I find the documentation for developers? =
 
 You can find the documentation of our REST API on the [Arya License Manager Wiki](https://github.com/aryathemes/arya-license-manager/wiki/REST-API).
 
