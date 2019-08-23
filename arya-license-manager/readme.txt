@@ -42,7 +42,7 @@ The manual installation method involves downloading the plugin and uploading it 
 
 = User guide =
 
-For help setting up please refer to our [user guide](https://github.com/aryathemes/arya-license-manager/wiki/Getting-Started).
+For help setting up please refer to our [user guide](https://github.com/aryathemes/arya-license-manager/wiki).
 
 = REST API documentation =
 
