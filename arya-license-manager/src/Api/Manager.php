@@ -120,13 +120,17 @@ class Manager
         $license = new License( $params[ 'license' ] );
 
         if ( ! $license->exists() ) {
-            return new \WP_Error( '404', 'The license provided does not exist.', [ 'status' => 404 ] );
+            return new \WP_Error( 'not_found', 'The license provided does not exist.', [ 'status' => 404 ] );
         }
 
         $activation = (new Activation)->getActivation();
 
+        if ( $license->existsActivation( $activation ) ) {
+            return new \WP_Error( 'activation', 'This resource has already been activated.', [ 'status' => 400 ] );
+        }
+
         if ( $license->addActivation( $activation ) ) {
-            $response = new \WP_REST_Response( [ 'activation' => 'successfully' ], 200 );
+            $response = new \WP_REST_Response( [ 'activation' => 'successfully' ], 201 );
         } else {
             $response = new \WP_Error( 'failed_activation', 'Failed activation.', [ 'status' => 302 ] );
         }
@@ -146,13 +150,13 @@ class Manager
         $license = new License( $params[ 'license' ] );
 
         if ( ! $license->exists() ) {
-            return new \WP_Error( '404', 'The license provided does not exist.', [ 'status' => 404 ] );
+            return new \WP_Error( 'not_found', 'The license provided does not exist.', [ 'status' => 404 ] );
         }
 
         $activation = (new Activation)->getActivation();
 
         if ( ! $license->existsActivation( $activation ) ) {
-            return new \WP_Error( 'activation_missing', 'The activation of using the provided license has not been established.', [ 'status' => 400 ] );
+            return new \WP_Error( 'bad_request', 'The activation of using the provided license has not been established.', [ 'status' => 400 ] );
         }
 
         if ( $license->removeActivation( $activation['constraint'] ) ) {
@@ -176,7 +180,7 @@ class Manager
         $license = new License( $params[ 'license' ] );
 
         if ( ! $license->exists() ) {
-            return new \WP_Error( '404', 'The license provided does not exist.', [ 'status' => 404 ] );
+            return new \WP_Error( 'not_found', 'The license provided does not exist.', [ 'status' => 404 ] );
         }
 
         $response = [ 'status' => $license->getStatus() ];
@@ -196,7 +200,7 @@ class Manager
         $license = new License( $params[ 'license' ] );
 
         if ( ! $license->exists() ) {
-            return new \WP_Error( '404', 'The license provided does not exist.', [ 'status' => 404 ] );
+            return new \WP_Error( 'not_found', 'The license provided does not exist.', [ 'status' => 404 ] );
         }
 
         return rest_ensure_response( new \WP_REST_Response( $license->getInformation(), 200 ) );
