@@ -161,13 +161,13 @@ class License
 
         /* Dates */
         if ( in_array( $order_status, wc_get_is_paid_statuses() ) ) {
-            $activation_date = date( 'F j, Y — H:i:s', strtotime( $activation_date ) );
+            $activation_date = date( 'F j, Y — H:i:s', strtotime( $this->license->getActivationDate() ) );
         } else {
             $activation_date = '-';
         }
 
         if ( in_array( $order_status, wc_get_is_paid_statuses() ) ) {
-            $expiration_date = date( 'F j, Y — H:i:s', strtotime( $expiration_date ) );
+            $expiration_date = date( 'F j, Y — H:i:s', strtotime( $this->license->getExpirationDate() ) );
         } else {
             $expiration_date = '-';
         }
