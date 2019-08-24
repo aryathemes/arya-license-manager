@@ -180,7 +180,7 @@ class Order
     public function activate( $order_id, $wc_order )
     {
         /* Activation date */
-        $activated_at_timestamp = $wc_order->get_date_created()->getTimestamp();
+        $activated_at_timestamp = current_time( 'timestamp', true );
 
         $activated_at = gmdate( 'Y-m-d H:i:s', $activated_at_timestamp );
 
