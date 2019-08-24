@@ -13,8 +13,5 @@ global $wpdb;
 /* Removes options */
 $wpdb->query( "DELETE FROM {$wpdb->options} WHERE `option_name` LIKE 'arya_license_manager%';" );
 
-/* Drop tables */
-$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}license_manager_credentials" );
-
 /* Removes all cache items */
 wp_cache_flush();
