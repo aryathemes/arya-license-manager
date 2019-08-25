@@ -47,6 +47,10 @@ For help setting up please refer to our [user guide](https://github.com/aryathem
 
 You can find the documentation of our REST API on the [Arya License Manager Wiki](https://github.com/aryathemes/arya-license-manager/wiki/REST-API).
 
+= Is Arya License Manager compliant with GDPR? =
+
+Yes. Arya License Manager plugin does not collect or store personal information. Hence, the plugin is 100% GDPR compliant.
+
 == Changelog ==
 
 = 1.0.0 =
