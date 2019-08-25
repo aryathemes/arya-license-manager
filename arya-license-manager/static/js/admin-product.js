@@ -5,6 +5,13 @@ jQuery(function($) {
         init: function() {
 
             $( 'select#product-type' ).change( function() {
+
+                var select_val = $( this ).val();
+
+                if ( 'variable' === select_val ) {
+                    $( 'input#_licensable' ).prop( 'checked', false );
+                }
+
                 show_and_hide_panels();
             }).change();
 
