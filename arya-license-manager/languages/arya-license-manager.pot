@@ -9,13 +9,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-23T01:30:56+00:00\n"
+"POT-Creation-Date: 2019-08-25T21:39:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: arya-license-manager\n"
 
 #. Plugin Name of the plugin
-#: src/Admin/Settings.php:84
 msgid "Arya License Manager"
 msgstr ""
 
@@ -44,10 +43,11 @@ msgid "Licenses Management"
 msgstr ""
 
 #: src/Admin/Admin.php:96
-#: src/Admin/Settings.php:62
-#: src/Admin/Settings.php:182
-#: src/Storefront/Account.php:84
-#: src/Storefront/Query.php:71
+#: src/Admin/Settings.php:61
+#: src/Admin/Settings.php:83
+#: src/Admin/Settings.php:181
+#: src/Storefront/Account.php:81
+#: src/Storefront/Query.php:69
 #: templates/emails/email-licenses.php:8
 #: templates/emails/plain/email-licenses.php:10
 #: templates/myaccount/order-licenses.php:8
@@ -63,7 +63,7 @@ msgstr ""
 #: src/Storefront/Licenses.php:113
 #: src/Storefront/Licenses.php:125
 #: src/Storefront/Order.php:314
-#: src/Storefront/Query.php:74
+#: src/Storefront/Query.php:72
 #: templates/emails/email-licenses.php:17
 #: templates/myaccount/order-licenses.php:15
 #: templates/myaccount/order-licenses.php:43
@@ -336,7 +336,6 @@ msgstr ""
 
 #: src/Admin/License.php:322
 #: src/Storefront/License.php:183
-#: templates/myaccount/credentials.php:21
 msgid "Revoke"
 msgstr ""
 
@@ -361,7 +360,7 @@ msgid "Update"
 msgstr ""
 
 #: src/Admin/License.php:386
-#: src/Storefront/Account.php:260
+#: src/Storefront/Account.php:208
 msgid "It was not possible to associate the license."
 msgstr ""
 
@@ -442,77 +441,70 @@ msgstr ""
 msgid "Enable this option if the product is associated to a license."
 msgstr ""
 
-#: src/Admin/Request.php:86
-#: src/Admin/Request.php:134
-#: src/Admin/Request.php:178
+#: src/Admin/Request.php:82
+#: src/Admin/Request.php:130
+#: src/Admin/Request.php:174
 msgid "It is not possible to perform an action since the order has not been completed."
 msgstr ""
 
-#: src/Admin/Settings.php:85
-msgid "The following options are used to configure Arya License Manager"
+#: src/Admin/Settings.php:84
+msgid "The following options are used to configure licenses format."
 msgstr ""
 
-#: src/Admin/Settings.php:90
+#: src/Admin/Settings.php:89
 msgid "Length"
 msgstr ""
 
-#: src/Admin/Settings.php:91
+#: src/Admin/Settings.php:90
 msgid "Number of characters to generate a new license. Licenses shall have a minimum length of 10 characters."
 msgstr ""
 
-#: src/Admin/Settings.php:103
+#: src/Admin/Settings.php:102
 msgid "Chunks"
 msgstr ""
 
-#: src/Admin/Settings.php:104
+#: src/Admin/Settings.php:103
 msgid "Split a license into chunks."
 msgstr ""
 
-#: src/Admin/Settings.php:116
+#: src/Admin/Settings.php:115
 msgid "Prefix"
 msgstr ""
 
-#: src/Admin/Settings.php:117
+#: src/Admin/Settings.php:116
 msgid "Add the prefix to the generated license."
 msgstr ""
 
-#: src/Admin/Settings.php:125
+#: src/Admin/Settings.php:124
 msgid "Suffix"
 msgstr ""
 
-#: src/Admin/Settings.php:126
+#: src/Admin/Settings.php:125
 msgid "Add the suffix to the generated license."
 msgstr ""
 
-#: src/Admin/Settings.php:143
+#: src/Admin/Settings.php:142
 msgid "Account page"
 msgstr ""
 
-#: src/Admin/Settings.php:148
+#: src/Admin/Settings.php:147
 msgid "Pagination"
 msgstr ""
 
-#: src/Admin/Settings.php:149
+#: src/Admin/Settings.php:148
 msgid "Limits the number of licenses to display on \"My Account\" page."
 msgstr ""
 
-#: src/Admin/Settings.php:183
-#: src/Admin/Settings.php:220
+#: src/Admin/Settings.php:182
 msgid "Endpoint for the \"Licenses\" page."
 msgstr ""
 
-#: src/Admin/Settings.php:190
+#: src/Admin/Settings.php:189
 msgid "View license"
 msgstr ""
 
-#: src/Admin/Settings.php:191
+#: src/Admin/Settings.php:190
 msgid "Endpoint for the \"View license\" page."
-msgstr ""
-
-#: src/Admin/Settings.php:219
-#: src/Storefront/Account.php:94
-#: src/Storefront/Query.php:77
-msgid "Security Credentials"
 msgstr ""
 
 #: src/License/Traits/LicenseTrait.php:51
@@ -540,12 +532,8 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: src/Storefront/Account.php:123
+#: src/Storefront/Account.php:96
 msgid "You do not have permission to view the license information."
-msgstr ""
-
-#: src/Storefront/Account.php:183
-msgid "You do not have permission to access this page."
 msgstr ""
 
 #: src/Storefront/Cart.php:99
@@ -590,26 +578,6 @@ msgstr ""
 
 #: src/Storefront/Product.php:79
 msgid "Add to cart"
-msgstr ""
-
-#: templates/myaccount/credentials.php:12
-msgid "Generate and Download"
-msgstr ""
-
-#: templates/myaccount/credentials.php:14
-msgid "There are no security credentials."
-msgstr ""
-
-#: templates/myaccount/credentials.php:23
-msgid "You have a pair of access security keys."
-msgstr ""
-
-#: templates/myaccount/credentials.php:28
-msgid "Security credentials are used as an authentication mechanism to activate and deactivate licenses remotely."
-msgstr ""
-
-#: templates/myaccount/credentials.php:30
-msgid "For your protection, download and store your credentials securely and do not share them."
 msgstr ""
 
 #: templates/myaccount/license.php:10
