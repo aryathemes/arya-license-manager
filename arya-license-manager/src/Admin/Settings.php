@@ -80,8 +80,8 @@ class Settings
         $license_settings[] = [
             'id'   => 'arya_license_manager_title',
             'type' => 'title',
-            'name' => __( 'Arya License Manager', 'arya-license-manager' ),
-            'desc' => __( 'The following options are used to configure Arya License Manager', 'arya-license-manager' )
+            'name' => __( 'Licenses', 'arya-license-manager' ),
+            'desc' => __( 'The following options are used to configure licenses format.', 'arya-license-manager' )
         ];
 
         $license_settings[] = [
