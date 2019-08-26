@@ -388,7 +388,8 @@ class Order
         $args = [
             'orderby'     => 'ID',
             'order'       => 'DESC',
-            'customer_id' => $order->get_user_id()
+            'customer_id' => $order->get_user_id(),
+            'status'      => 'completed'
         ];
 
         $key = hash( 'md5', serialize( [ 'arya-customer-licenses', ARYA_LICENSE_MANAGER_FILE, $args ] ) );
