@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-25T21:39:00+00:00\n"
+"POT-Creation-Date: 2019-08-26T05:27:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.3.0\n"
 "X-Domain: arya-license-manager\n"
@@ -59,10 +59,10 @@ msgstr ""
 #: src/Admin/Product/Simple.php:63
 #: src/Admin/Product/Simple.php:64
 #: src/Admin/Product/Variable.php:65
-#: src/Storefront/Licenses.php:74
+#: src/Storefront/Licenses.php:73
+#: src/Storefront/Licenses.php:102
 #: src/Storefront/Licenses.php:113
-#: src/Storefront/Licenses.php:125
-#: src/Storefront/Order.php:314
+#: src/Storefront/Order.php:292
 #: src/Storefront/Query.php:72
 #: templates/emails/email-licenses.php:17
 #: templates/myaccount/order-licenses.php:15
@@ -71,13 +71,13 @@ msgid "License"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:49
-#: src/Storefront/Order.php:326
+#: src/Storefront/Order.php:304
 msgid "Type"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:50
 #: src/Admin/License.php:196
-#: src/Storefront/License.php:118
+#: src/Storefront/License.php:109
 #: templates/emails/email-licenses.php:16
 #: templates/myaccount/order-licenses.php:14
 #: templates/myaccount/order-licenses.php:42
@@ -92,26 +92,23 @@ msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:52
 #: src/Admin/License.php:188
-#: src/Storefront/Order.php:317
+#: src/Storefront/Order.php:295
 msgid "Status"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:53
 #: src/Admin/License.php:200
-#: src/Storefront/License.php:122
+#: src/Storefront/License.php:113
 msgid "Service start date"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:54
 #: src/Admin/License.php:204
-#: src/Storefront/License.php:126
+#: src/Storefront/License.php:117
 msgid "Service end date"
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:55
-#: src/Storefront/Licenses.php:72
-#: src/Storefront/Licenses.php:111
-#: src/Storefront/Licenses.php:123
 msgid "Order"
 msgstr ""
 
@@ -120,13 +117,13 @@ msgid "No licenses found."
 msgstr ""
 
 #: src/Admin/Analytics/Licenses.php:229
-#: src/Storefront/License.php:110
+#: src/Storefront/License.php:105
 msgid "unlimited"
 msgstr ""
 
 #. translators: %s of %s: number of activations
 #: src/Admin/Analytics/Licenses.php:232
-#: src/Storefront/License.php:110
+#: src/Storefront/License.php:105
 msgid "%1$s of %2$s"
 msgstr ""
 
@@ -247,10 +244,10 @@ msgstr ""
 
 #: src/Admin/License.php:133
 #: src/Admin/License.php:240
-#: src/Storefront/License.php:156
-#: src/Storefront/Licenses.php:75
+#: src/Storefront/License.php:147
+#: src/Storefront/Licenses.php:74
+#: src/Storefront/Licenses.php:103
 #: src/Storefront/Licenses.php:114
-#: src/Storefront/Licenses.php:126
 #: templates/myaccount/order-licenses.php:16
 #: templates/myaccount/order-licenses.php:44
 msgid "Actions"
@@ -258,14 +255,14 @@ msgstr ""
 
 #: src/Admin/License.php:147
 #: src/Storefront/Cart.php:116
-#: src/Storefront/Order.php:354
+#: src/Storefront/Order.php:332
 msgid "Unlimited activations"
 msgstr ""
 
 #. translators: %d activation: number of activations
 #: src/Admin/License.php:149
 #: src/Storefront/Cart.php:118
-#: src/Storefront/Order.php:356
+#: src/Storefront/Order.php:334
 msgid "%d activation"
 msgid_plural "%d activations"
 msgstr[0] ""
@@ -274,12 +271,12 @@ msgstr[1] ""
 #: src/Admin/License.php:192
 #: src/Admin/Product.php:121
 #: src/Admin/Product/Variable.php:121
-#: src/Storefront/License.php:130
+#: src/Storefront/License.php:121
 msgid "License type"
 msgstr ""
 
 #: src/Admin/License.php:208
-#: src/Storefront/License.php:134
+#: src/Storefront/License.php:125
 msgid "Allowed activations"
 msgstr ""
 
@@ -288,40 +285,40 @@ msgid "Order / Customer"
 msgstr ""
 
 #: src/Admin/License.php:238
-#: src/Storefront/License.php:154
+#: src/Storefront/License.php:145
 msgid "Activation"
 msgstr ""
 
 #: src/Admin/License.php:239
-#: src/Storefront/License.php:155
-#: src/Storefront/Order.php:329
+#: src/Storefront/License.php:146
+#: src/Storefront/Order.php:307
 msgid "Activation date"
 msgstr ""
 
 #: src/Admin/License.php:255
-#: src/Storefront/License.php:217
+#: src/Storefront/License.php:208
 msgid "Associate"
 msgstr ""
 
 #: src/Admin/License.php:259
 #: src/License/Traits/LicenseTrait.php:98
-#: src/Storefront/License.php:219
+#: src/Storefront/License.php:210
 msgid "WordPress"
 msgstr ""
 
 #: src/Admin/License.php:260
 #: src/License/Traits/LicenseTrait.php:101
-#: src/Storefront/License.php:220
+#: src/Storefront/License.php:211
 msgid "Web Application"
 msgstr ""
 
 #: src/Admin/License.php:268
-#: src/Storefront/License.php:225
+#: src/Storefront/License.php:216
 msgid "Website URL"
 msgstr ""
 
 #: src/Admin/License.php:275
-#: src/Storefront/License.php:228
+#: src/Storefront/License.php:219
 msgid "The IP address of the provided website is automatically assigned."
 msgstr ""
 
@@ -330,12 +327,12 @@ msgid "Associate license"
 msgstr ""
 
 #: src/Admin/License.php:304
-#: src/Storefront/License.php:165
+#: src/Storefront/License.php:156
 msgid "This license has not been associated to a website."
 msgstr ""
 
 #: src/Admin/License.php:322
-#: src/Storefront/License.php:183
+#: src/Storefront/License.php:174
 msgid "Revoke"
 msgstr ""
 
@@ -360,7 +357,7 @@ msgid "Update"
 msgstr ""
 
 #: src/Admin/License.php:386
-#: src/Storefront/Account.php:208
+#: src/Storefront/Account.php:217
 msgid "It was not possible to associate the license."
 msgstr ""
 
@@ -537,42 +534,38 @@ msgid "You do not have permission to view the license information."
 msgstr ""
 
 #: src/Storefront/Cart.php:99
-#: src/Storefront/Order.php:320
+#: src/Storefront/Order.php:298
 msgid "Activation period"
 msgstr ""
 
-#: src/Storefront/License.php:114
-msgid "Order number"
-msgstr ""
-
-#: src/Storefront/License.php:235
+#: src/Storefront/License.php:226
 msgid "Accept"
 msgstr ""
 
-#: src/Storefront/Licenses.php:73
+#: src/Storefront/Licenses.php:72
+#: src/Storefront/Licenses.php:101
 #: src/Storefront/Licenses.php:112
-#: src/Storefront/Licenses.php:124
 msgid "Software"
 msgstr ""
 
-#: src/Storefront/Licenses.php:106
+#: src/Storefront/Licenses.php:96
 #: templates/myaccount/order-licenses.php:37
 msgid "Manage"
 msgstr ""
 
-#: src/Storefront/Licenses.php:157
+#: src/Storefront/Licenses.php:145
 msgid "«"
 msgstr ""
 
-#: src/Storefront/Licenses.php:158
+#: src/Storefront/Licenses.php:146
 msgid "»"
 msgstr ""
 
-#: src/Storefront/Order.php:323
+#: src/Storefront/Order.php:301
 msgid "Activations limit"
 msgstr ""
 
-#: src/Storefront/Order.php:332
+#: src/Storefront/Order.php:310
 msgid "Expiry date"
 msgstr ""
 
