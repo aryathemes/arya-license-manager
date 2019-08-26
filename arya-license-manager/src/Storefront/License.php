@@ -79,11 +79,6 @@ class License
      */
     public function details( $license )
     {
-        /* Order */
-        $order = $license->getOrder();
-
-        $order_link = sprintf( '<a href="%1$s">#%2$s</a>', $order->get_view_order_url(), $order->get_order_number() );
-
         /* Product */
         $product = $license->getProduct();
 
@@ -110,10 +105,6 @@ class License
         $activations = sprintf( __( '%1$s of %2$s', 'arya-license-manager' ), $count, $limit ?: __( 'unlimited', 'arya-license-manager' ) ); ?>
 
         <table class="shop_table license-manager-details-table">
-            <tr>
-                <td><?php esc_html_e( 'Order number', 'arya-license-manager' ); ?></td>
-                <td><?php echo $order_link; ?></td>
-            </tr>
             <tr>
                 <td><?php esc_html_e( 'Product', 'arya-license-manager' ); ?></td>
                 <td><?php echo $product_link; ?></td>

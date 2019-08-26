@@ -99,13 +99,7 @@ class Account
 
         $license = esc_attr( get_query_var( 'view-license' ) );
 
-        $order_id = filter_input( INPUT_GET, 'order', FILTER_SANITIZE_STRING ) ?: 0;
-
-        if ( 0 == intval( $order_id ) ) {
-            return;
-        }
-
-        $license = new License( $license, $order_id );
+        $license = new License( $license );
 
         if ( ! $license->exists() ) {
             $license = null;
@@ -126,7 +120,8 @@ class Account
         $args = [
             'orderby'     => 'ID',
             'order'       => 'DESC',
-            'customer_id' => get_current_user_id()
+            'customer_id' => get_current_user_id(),
+            'status'      => 'completed'
         ];
 
         $key = hash( 'md5', serialize( [ 'arya-customer-licenses', ARYA_LICENSE_MANAGER_FILE, $args ] ) );
@@ -135,7 +130,21 @@ class Account
 
         if ( false === $licenses ) {
 
-            $licenses = iterator_to_array( (new Licenses( $args ))->getLicenses(), true );
+            $_licenses = (new Licenses( $args ))->getLicenses();
+
+            $licenses = [];
+
+            $keys = [];
+
+            foreach( $_licenses as $_license ) {
+                $license_key = $_license->getLicense();
+
+                if ( ! in_array( $license_key, $keys ) ) {
+                    $keys[] = $license_key;
+
+                    $licenses[] = $_license;
+                }
+            }
 
             wp_cache_add( $key, $licenses, 'arya_license_manager', DAY_IN_SECONDS );
         }
@@ -204,8 +213,8 @@ class Account
         $admin_ajax = esc_url( admin_url( 'admin-ajax.php' ) );
 
         $activations = [
-            'ajaxurl'             => $admin_ajax,
-            'error'               => esc_html__( 'It was not possible to associate the license.', 'arya-license-manager' ),
+            'ajaxurl'                 => $admin_ajax,
+            'error'                   => esc_html__( 'It was not possible to associate the license.', 'arya-license-manager' ),
             'activation_add_nonce'    => wp_create_nonce( 'arya-license-manager-activation-add' ),
             'activation_revoke_nonce' => wp_create_nonce( 'arya-license-manager-activation-revoke' )
         ];

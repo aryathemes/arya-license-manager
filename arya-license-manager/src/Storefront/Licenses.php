@@ -69,7 +69,6 @@ class Licenses
 
         <thead>
             <tr>
-                <th><?php esc_html_e( 'Order',    'arya-license-manager' ); ?></th>
                 <th><?php esc_html_e( 'Software', 'arya-license-manager' ); ?></th>
                 <th><?php esc_html_e( 'License',  'arya-license-manager' ); ?></th>
                 <th><?php esc_html_e( 'Actions',  'arya-license-manager' ); ?></th>
@@ -84,13 +83,6 @@ class Licenses
         /* License */
         $license = $detail->getLicense();
 
-        /* Order ID */
-        $order_id = intval( $detail->getOrder()->get_id() );
-
-        $order_endpoint = wc_get_endpoint_url( 'view-order', $order_id, wc_get_page_permalink( 'myaccount' ) );
-
-        $order = sprintf( '<a href="%1$s">#%2$s</a>', esc_url( $order_endpoint ), $order_id );
-
         /* Product ID */
         $product_id = intval( $detail->getProduct()->get_id() );
 
@@ -99,8 +91,6 @@ class Licenses
         /* Actions */
         $license_endpoint = wc_get_endpoint_url( 'view-license', $license, wc_get_page_permalink( 'myaccount' ) );
 
-        $license_endpoint = add_query_arg( 'order', $order_id, $license_endpoint );
-
         $license_endpoint = esc_url( wp_nonce_url( $license_endpoint, -1, '_nonce' ) );
 
         $license_details = esc_html__( 'Manage', 'arya-license-manager' );
@@ -108,10 +98,9 @@ class Licenses
         $action = sprintf( '<a class="woocommerce-button button alt" href="%1$s">%2$s</a>', $license_endpoint, $license_details ); ?>
 
         <tr>
-            <td data-title="<?php esc_html_e( 'Order',    'arya-license-manager' ); ?>"><?= $order ?></td>
-            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>"><?= $product ?></td>
-            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>"><code><?= $license ?></code></td>
-            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>"><?= $action ?></td>
+            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>"><?php echo $product; ?></td>
+            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>"><code><?php echo $license; ?></code></td>
+            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>"><?php echo $action; ?></td>
         </tr>
 
         <?php endforeach; ?>
@@ -120,7 +109,6 @@ class Licenses
 
         <tfoot>
             <tr>
-                <td><?php esc_html_e( 'Order',    'arya-license-manager' ); ?></td>
                 <td><?php esc_html_e( 'Software', 'arya-license-manager' ); ?></td>
                 <td><?php esc_html_e( 'License',  'arya-license-manager' ); ?></td>
                 <td><?php esc_html_e( 'Actions',  'arya-license-manager' ); ?></td>
