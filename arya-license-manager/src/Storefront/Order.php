@@ -138,7 +138,6 @@ class Order
      */
     public function renew( $order_id, $wc_order )
     {
-        /* Items */
         foreach ( $wc_order->get_items() as $item ) {
 
             $product = $item->get_product();
@@ -147,28 +146,7 @@ class Order
                 continue;
             }
 
-            $item_id = $item->get_id();
-
-            $now = current_time( 'timestamp', true );
-
-            $activated_at = wc_get_order_item_meta( $item_id, '_arya_license_activated_at' );
-
-            $activated_at_timestamp = strtotime( $activated_at );
-
-            if ( $activated_at_timestamp <= $now ) {
-
-                $new_activated_at = gmdate( 'Y-m-d H:i:s', $activated_at_timestamp );
-
-                wc_update_order_item_meta( $item_id, '_arya_license_activated_at', $new_activated_at );
-
-                $activation_period = wc_get_order_item_meta( $item_id, 'arya_license_activation_period' );
-
-                $new_expire_at = gmdate( 'Y-m-d H:i:s', strtotime( "+ {$activation_period}", $activated_at_timestamp ) );
-
-                wc_update_order_item_meta( $item_id, '_arya_license_expire_at', $new_expire_at );
-            }
-
-            wc_update_order_item_meta( $item_id, 'arya_license_status', 'valid' );
+            wc_update_order_item_meta( $item->get_id(), 'arya_license_status', 'valid' );
         }
     }
 

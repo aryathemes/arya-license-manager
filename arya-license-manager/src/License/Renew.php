@@ -65,11 +65,13 @@ class Renew
         $order = wc_get_order( $new_order );
 
         /* License information */
-        $new_activated_at = $this->license->getExpirationDate();
+        $activated_at = $this->license->getActivationDate();
+
+        $expiration_at = $this->license->getExpirationDate();
 
         $activation_period = $this->license->getActivationPeriod();
 
-        $new_expire_at = gmdate( 'Y-m-d H:i:s', strtotime( "+ {$activation_period}", strtotime( $new_activated_at ) ) );
+        $new_expire_at = gmdate( 'Y-m-d H:i:s', strtotime( "+ {$activation_period}", strtotime( $expiration_at ) ) );
 
         $limit = $this->license->getActivationsLimit();
 
@@ -77,12 +79,15 @@ class Renew
 
         $license = $this->license->getLicense();
 
+        $activations = $this->license->getActivations();
+
         foreach ( $order->get_items() as $item ) {
 
             $item_id = $item->get_id();
 
-            wc_add_order_item_meta( $item_id, '_arya_license_activated_at', $new_activated_at );
+            wc_add_order_item_meta( $item_id, '_arya_license_activated_at', $activated_at );
             wc_add_order_item_meta( $item_id, '_arya_license_expire_at', $new_expire_at );
+            wc_add_order_item_meta( $item_id, '_arya_license_activations', $activations );
             wc_add_order_item_meta( $item_id, 'arya_license_activation_period', $activation_period );
             wc_add_order_item_meta( $item_id, 'arya_license_activations_limit', $limit );
             wc_add_order_item_meta( $item_id, 'arya_license_type', $type );
