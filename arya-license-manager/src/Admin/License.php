@@ -95,7 +95,7 @@ class License
 
             <div id="poststuff">
 
-                <div id="post-body" class="metabox-holder columns-<?php echo $columns; ?>">
+                <div id="post-body" class="metabox-holder columns-<?php echo esc_attr( $columns ); ?>">
 
                     <div id="postbox-container-1" class="postbox-container">
                         <?php do_meta_boxes( get_current_screen(), 'side', null ); ?>
@@ -146,7 +146,7 @@ class License
         $limit = 0 == $_limit ?
             __( 'Unlimited activations', 'arya-license-manager' ) :
             /* translators: %d activation: number of activations */
-            sprintf( _n( '%d activation', '%d activations', $_limit, 'arya-license-manager' ), $_limit );
+            sprintf( _n( '%d activation', '%d activations', $_limit, 'arya-license-manager' ), human_time_diff( $_limit ) );
 
         $product = $this->license->getProduct();
 
@@ -172,6 +172,9 @@ class License
             $expiration_date = '-';
         }
 
+        /* Product */
+        $product = sprintf( '<a href="%1$s">%2$s</a>', esc_url( get_edit_post_link( $product_id ) ), esc_html( $product->get_name() ) );
+
         /* Customer information */
         $customer = $order->get_billing_company() ?: sprintf( '%1$s %2$s', $order->get_billing_first_name(), $order->get_billing_last_name() );
 
@@ -182,35 +185,35 @@ class License
         <table class="information-table widefat">
             <tr>
                 <td><?php esc_html_e( 'License', 'arya-license-manager' ); ?></td>
-                <td><code><?php echo $this->license; ?></code></td>
+                <td><code><?php echo esc_html( $this->license ); ?></code></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Status', 'arya-license-manager' ); ?></td>
-                <td><?php echo $this->getStatus( $this->license->getStatus() ); ?></td>
+                <td><?php echo esc_html( $this->getStatus( $this->license->getStatus() ) ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'License type', 'arya-license-manager' ); ?></td>
-                <td><?php echo $this->getType( $this->license->getType() ); ?></td>
+                <td><?php echo esc_html( $this->getType( $this->license->getType() ) ); ?></td>
             </tr>
             <tr>
-                <td><?php esc_html_e( 'Product', 'arya-license-manager' ); ?></td>
-                <td><?php printf( '<a href="%1$s">%2$s</a>', get_edit_post_link( $product_id ), $product->get_name() ); ?></td>
+                <td><?php esc_html_e( 'Product HM', 'arya-license-manager' ); ?></td>
+                <td><?php echo wp_kses( $product, [ 'a' => [ 'href' => true ] ] ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Service start date', 'arya-license-manager' ); ?></td>
-                <td><?php echo $activation_date; ?></td>
+                <td><?php echo esc_html( $activation_date ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Service end date', 'arya-license-manager' ); ?></td>
-                <td><?php echo $expiration_date; ?></td>
+                <td><?php echo esc_html( $expiration_date ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Allowed activations', 'arya-license-manager' ); ?></td>
-                <td><?php echo $limit; ?></td>
+                <td><?php echo esc_html( $limit ); ?></td>
             </tr>
             <tr>
                 <td><?php esc_html_e( 'Order / Customer', 'arya-license-manager' ); ?></td>
-                <td><?php echo $customer; ?></td>
+                <td><?php echo wp_kses( $customer, [ 'a' => [ 'href' => true ] ] ); ?></td>
             </tr>
         </table>
 
@@ -311,14 +314,14 @@ class License
 
                 <tr>
                     <td>
-                        <?php echo $this->getActivationType( $activation['type'] ); ?>
+                        <?php echo esc_html( $this->getActivationType( $activation['type'] ) ); ?>
                         <br />
-                        <?php echo $activation['constraint'] . ' — ' . $activation['information']; ?>
+                        <?php echo esc_html( $activation['constraint'] . ' — ' . $activation['information'] ); ?>
                     </td>
-                    <td><?php echo date( 'F j, Y — H:i:s', $activation['activated_at'] ); ?></td>
+                    <td><?php echo esc_html( date( 'F j, Y — H:i:s', $activation['activated_at'] ) ); ?></td>
                     <td>
                         <button class="components-button is-button is-default is-large activation-revoke"
-                            data-constraint="<?php echo $activation['constraint']; ?>">
+                            data-constraint="<?php echo esc_attr( $activation['constraint'] ); ?>">
                             <?php esc_html_e( 'Revoke', 'arya-license-manager' ); ?>
                         </button>
                     </td>
@@ -362,8 +365,8 @@ class License
         </select>
 
         <button class="components-button is-button is-default is-large button-actions"
-            data-license="<?php echo $information['license']; ?>"
-            data-order="<?php echo $order_id; ?>"><?php esc_html_e( 'Update', 'arya-license-manager' ); ?></button>
+            data-license="<?php echo esc_attr( $information['license'] ); ?>"
+            data-order="<?php echo esc_attr( $order_id ); ?>"><?php esc_html_e( 'Update', 'arya-license-manager' ); ?></button>
 
         <br class="clear" />
 

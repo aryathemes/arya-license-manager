@@ -115,7 +115,7 @@ class Cart
         if ( 0 === $limit ) {
             $display = __( 'Unlimited activations', 'arya-license-manager' );
         } else if ( 0 < $limit ) {
-            $display = sprintf( _n( '%d activation', '%d activations', $limit, 'arya-license-manager' ), $limit );
+            $display = sprintf( _n( '%d activation', '%d activations', $limit, 'arya-license-manager' ), human_time_diff( $limit ) );
         } else {
             $display = __( 'Unknown', 'arya-license-manager' );
         }

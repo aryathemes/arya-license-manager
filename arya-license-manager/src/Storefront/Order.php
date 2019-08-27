@@ -331,7 +331,7 @@ class Order
                 if ( 0 === intval( $display_value ) ) {
                     $display_value = esc_html__( 'Unlimited activations', 'arya-license-manager' );
                 } else {
-                    $display_value = sprintf( _n( '%d activation', '%d activations', intval( $display_value ), 'arya-license-manager' ), $display_value );
+                    $display_value = sprintf( _n( '%d activation', '%d activations', intval( $display_value ), 'arya-license-manager' ), human_time_diff( $display_value ) );
                 }
 
                 break;

@@ -116,7 +116,9 @@ class Request
         check_ajax_referer( 'arya-license-manager-activation-add', 'security' );
 
         /* Verifies */
-        if ( empty( $_POST['constraint'] ) ) {
+        $constraint = sanitize_text_field( $_POST['constraint'] );
+
+        if ( empty( $constraint ) ) {
             wp_send_json( [], 500 );
         }
 
@@ -132,9 +134,11 @@ class Request
         }
 
         /* Retrieves the activation */
+        $type = sanitize_text_field( $_POST['type'] );
+
         $data = [
-            'constraint'  => $_POST['constraint'],
-            'type'        => $_POST['type']
+            'constraint'  => $constraint,
+            'type'        => $type
         ];
 
         $activation = (new Activation( $data ))->getActivation();

@@ -56,7 +56,7 @@ class Licenses
 
         if ( $total > $pagination ) {
 
-            $pagenum = $_REQUEST['paged'] ?? 0;
+            $pagenum = sanitize_text_field( $_REQUEST['paged'] ?? 0 );
 
             $current = max( 1, abs( intval( $pagenum ) ) );
 
@@ -98,9 +98,9 @@ class Licenses
         $action = sprintf( '<a class="woocommerce-button button alt" href="%1$s">%2$s</a>', $license_endpoint, $license_details ); ?>
 
         <tr>
-            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>"><?php echo $product; ?></td>
-            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>"><code><?php echo $license; ?></code></td>
-            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>"><?php echo $action; ?></td>
+            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>"><?php echo esc_html( $product ); ?></td>
+            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>"><code><?php echo esc_html( $license ); ?></code></td>
+            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>"><?php echo esc_html( $action ); ?></td>
         </tr>
 
         <?php endforeach; ?>
@@ -127,11 +127,11 @@ class Licenses
      */
     public function pagination( $licenses )
     {
-        $pagination = get_option( 'arya_license_manager_account_pagination', 10 );
+        $pagination = (int) get_option( 'arya_license_manager_account_pagination', 10 );
 
         $total = ceil( count( $licenses ) / $pagination );
 
-        $pagenum = $_REQUEST['paged'] ?? 0;
+        $pagenum = sanitize_text_field( $_REQUEST['paged'] ?? 0 );
 
         $current = max( 1, abs( intval( $pagenum ) ) );
 

@@ -164,7 +164,7 @@ class Licenses extends Table
     {
         $data = sprintf( '%1$s,%2$s', $item['license'], $item['order']->get_id() );
 
-        return sprintf( '<input type="checkbox" name="checked[]" value="%s" />', $data );
+        return sprintf( '<input type="checkbox" name="checked[]" value="%s" />', esc_attr( $data ) );
     }
 
     /**
@@ -174,9 +174,6 @@ class Licenses extends Table
      */
     public function column_license( $item )
     {
-        /* Nonce */
-        $_nonce = wp_create_nonce( "bulk-{$this->_args['plural']}" );
-
         /* License */
         $license_url = add_query_arg( [
             'tab'     => 'license',
@@ -214,7 +211,7 @@ class Licenses extends Table
 
         $product_id = 0 <> $product->get_parent_id() ? $product->get_parent_id() : $product->get_id();
 
-        return sprintf( '<a href="%1$s">%2$s</a>', get_edit_post_link( $product_id ), $product->get_name() );
+        return sprintf( '<a href="%1$s">%2$s</a>', esc_url( get_edit_post_link( $product_id ) ), esc_html( $product->get_name() ) );
     }
 
     /**
@@ -292,7 +289,7 @@ class Licenses extends Table
 
         $customer = $order->get_billing_company() ?: sprintf( '%1$s %2$s', $order->get_billing_first_name(), $order->get_billing_last_name() );
 
-        return sprintf( '<a href="%1$s">#%2$s %3$s</a>', get_edit_post_link( $order->get_id() ), $order->get_id(), $customer );
+        return sprintf( '<a href="%1$s">#%2$s %3$s</a>', esc_url( get_edit_post_link( $order->get_id() ) ), esc_html( $order->get_id() ), esc_html( $customer ) );
     }
 
     /**
@@ -316,6 +313,8 @@ class Licenses extends Table
     {
         $licenses = $_POST['checked'] ?? [];
 
+        $licenses = array_map( 'esc_sql', $licenses );
+
         if ( empty( $licenses ) ) {
             return;
         }
@@ -338,7 +337,7 @@ class Licenses extends Table
 
                 extract( $f( $_license ) );
 
-                $order = new Order( esc_attr( $order_id ) );
+                $order = new Order( esc_sql( $order_id ) );
 
                 if ( ! in_array( $order->get_status(), wc_get_is_paid_statuses() ) || ! $order->hasActiveLicense() ) {
                     return;

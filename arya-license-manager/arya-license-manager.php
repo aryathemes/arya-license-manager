@@ -4,7 +4,7 @@
  * Plugin URI: https://gitlab.com/arya-license-manager
  * Description: Arya License Manager integrates with WooCommerce to simplify the creation and management of software licenses.
  * Author: Arya Themes
- * Author URI: https://aryathemes.com
+ * Author URI: https://www.aryathemes.com
  * Version: 1.0.0
  * License: GNU General Public License, version 3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html

@@ -158,7 +158,7 @@ class Product
     public function save( $product_id, $object )
     {
         /* Check if the nonce is set */
-        $nonce = $_POST["arya-license-manager-license-$product_id-nonce"] ?? '';
+        $nonce = sanitize_text_field( $_POST["arya-license-manager-license-$product_id-nonce"] ?? '' );
 
         if ( empty( $nonce ) ) {
             return;
@@ -190,7 +190,7 @@ class Product
 
             $value = get_post_meta( $product_id, $meta, true );
 
-            $new_value = $_POST[ $meta ] ?? '';
+            $new_value = sanitize_text_field( $_POST[ $meta ] ?? '' );
 
             if ( ! empty( $new_value ) && $new_value !== $value ) {
                 update_post_meta( $product_id, $meta, $new_value );

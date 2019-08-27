@@ -63,7 +63,7 @@ class Variable
 
         <label class="tips" data-tip="<?php esc_html_e( 'Enable this option if the product is associated to a license.', 'arya-license-manager' ); ?>">
             <?php esc_html_e( 'License', 'arya-license-manager' ); ?>:
-            <input type="checkbox" class="checkbox variable_is_licensable" name="<?php echo( $name ); ?>" <?php checked( $checked, 'yes' ); ?> />
+            <input type="checkbox" class="checkbox variable_is_licensable" name="<?php echo esc_attr( $name ); ?>" <?php checked( $checked, 'yes' ); ?> />
         </label>
 
         <?php
@@ -141,7 +141,7 @@ class Variable
     public function save( $variation_id, $loop )
     {
         /* Check if the nonce is set */
-        $nonce = $_POST["arya-license-manager-variation-$variation_id-nonce"] ?? '';
+        $nonce = sanitize_text_field( $_POST["arya-license-manager-variation-$variation_id-nonce"] ?? '' );
 
         if ( empty( $nonce ) ) {
             return;
@@ -174,7 +174,7 @@ class Variable
 
             $value = get_post_meta( $variation_id, $meta, true );
 
-            $new_value = $_POST[$meta][$loop] ?? '';
+            $new_value = sanitize_text_field( $_POST[$meta][$loop] ?? '' );
 
             if ( ! empty( $new_value ) && $new_value !== $value ) {
                 update_post_meta( $variation_id, $meta, $new_value );
