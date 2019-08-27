@@ -98,9 +98,15 @@ class Licenses
         $action = sprintf( '<a class="woocommerce-button button alt" href="%1$s">%2$s</a>', $license_endpoint, $license_details ); ?>
 
         <tr>
-            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>"><?php echo esc_html( $product ); ?></td>
-            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>"><code><?php echo esc_html( $license ); ?></code></td>
-            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>"><?php echo esc_html( $action ); ?></td>
+            <td data-title="<?php esc_html_e( 'Software', 'arya-license-manager' ); ?>">
+                <?php echo wp_kses( $product, [ 'a' => [ 'href' => true ] ] ); ?>
+            </td>
+            <td data-title="<?php esc_html_e( 'License',  'arya-license-manager' ); ?>">
+                <code><?php echo esc_html( $license ); ?></code>
+            </td>
+            <td data-title="<?php esc_html_e( 'Actions',  'arya-license-manager' ); ?>">
+                <?php echo wp_kses( $action, [ 'a' => [ 'class' => true, 'href' => true ] ] ); ?>
+            </td>
         </tr>
 
         <?php endforeach; ?>
