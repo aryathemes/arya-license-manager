@@ -7,6 +7,9 @@ management of software licenses.
 * Limit the licenses per activations
 * Simple and Variable products are supported
 
+The latest stable version is also available from the
+[WordPress Plugin Directory](https://wordpress.org/plugins/arya-license-manager/).
+
 ## Recommended requirements
 
 * PHP version 7.3 or greater
